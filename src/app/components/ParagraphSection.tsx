@@ -106,7 +106,7 @@ const ParagraphSection = ({ text }: any) => {
             return sentence.expected !== sentence.value ? (
               <Popover trigger="hover">
                 <PopoverTrigger>
-                  <Text key={index} as="span" color="red">
+                  <Text key={index} as="span" color="red" textDecoration={'underline'}>
                     {sentence.value}
                   </Text>
                 </PopoverTrigger>
