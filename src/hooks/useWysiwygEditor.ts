@@ -2,9 +2,9 @@ import { EditorState, Modifier } from 'draft-js';
 import { useCallback, useState } from 'react';
 
 const useWysiwygEditor = () => {
-  const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty());
+  const [editorState, setEditorState] = useState<any>(EditorState.createEmpty());
 
-  const insertCharacter = (characterToInsert: string, currentEditorState: EditorState) => {
+  const insertCharacter = (characterToInsert: string, currentEditorState: any) => {
     const currentContent = currentEditorState.getCurrentContent();
     const currentSelection = currentEditorState.getSelection();
 
@@ -19,12 +19,12 @@ const useWysiwygEditor = () => {
     return  EditorState.forceSelection(newEditorState, newContent.getSelectionAfter());
   }
 
-  const onEditorStateChange = (editorState: EditorState) => {
+  const onEditorStateChange = (editorState: any) => {
     setEditorState(editorState);
   };
 
   const insertText = (text: string) => {
-    setEditorState((prevState: EditorState) => insertCharacter(text, prevState));
+    setEditorState((prevState: any) => insertCharacter(text, prevState));
   }
 
   return {
