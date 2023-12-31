@@ -40,7 +40,7 @@ const keywords: Record<string, string> = {
   " asterisco": "*",
 };
 
-const Main = () => {
+const Home = () => {
   const { onCopy, value: text, setValue: setText, hasCopied } = useClipboard("");
   const { isRecording, startRecognition, stopRecognition, toggleRecognition } =
     useSpeechRecognition({
@@ -80,20 +80,26 @@ const Main = () => {
   };
 
   return (
-    <Box paddingX='100px' paddingTop={'30px'}>
+    <Box paddingX={{
+      lg: '100px',
+      md: '50px',
+      sm: '20px',
+    }} paddingTop={'30px'}>
       <VStack alignItems='flex-start' gap={'10px'}>
         <Heading>Transcritor de Voz para Texto</Heading>
         <HStack gap={'10px'}>
           <Button leftIcon={isRecording ? <IoStopCircleOutline /> : <IoMicOutline />} onClick={toggleRecognition}>{isRecording ? 'Gravando...' : 'Iniciar gravação'}</Button>
           <Button leftIcon={<FaRegCopy />} onClick={onCopy}>{hasCopied ? "Copiado!" : "Copiar"}</Button>
         </HStack>
-        <Flex height='80vh' width='100%'>
+        <Flex height='80vh' width='100%' flexWrap={'wrap'} gap={10}>
           <Textarea
             height='100%'
             value={text}
             onChange={(e) => setText(e.target.value)}
+            flex={2}
+            minWidth={'400px'}
           />
-          <Box overflow={'scroll'} maxH='100%' width='30vw'>
+          <Box overflow={'scroll'} maxH='100%' flex={1}>
             <Table variant='striped'>
               <Thead>
                 <Tr fontWeight={'bold'}>
@@ -117,4 +123,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
