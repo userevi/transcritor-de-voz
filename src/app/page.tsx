@@ -42,8 +42,9 @@ const keywords: Record<string, string> = {
 
 const Home = () => {
   const { onCopy, value: text, setValue: setText, hasCopied } = useClipboard("");
-  const { isRecording, startRecognition, stopRecognition, toggleRecognition } =
+  const { isRecording, toggleRecognition } =
     useSpeechRecognition({
+      lang: "pt-BR",
       onResult: (text: string) => {
         let formattedText = text.toLocaleLowerCase();
         Object.keys(keywords).forEach((keyword) => {
@@ -56,19 +57,6 @@ const Home = () => {
         setText((prevText) => prevText + formattedText);
       },
     });
-
-  useEffect(() => {
-    window.addEventListener("blur", () => {
-      stopRecognition();
-    });
-
-    return () => {
-      // Clean up the event listener when the component unmounts
-      window.removeEventListener("blur", () => {
-        stopRecognition();
-      });
-    };
-  }, []);
 
   const capitalizeAfterPunctuation = (input: string) => {
     return input.replace(
