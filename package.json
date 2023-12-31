@@ -20,7 +20,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-draft-wysiwyg": "^1.15.0",
-    "react-icons": "^4.12.0"
+    "react-icons": "^4.12.0",
+    "youtube-transcript": "^1.0.6"
   },
   "devDependencies": {
     "@types/diff": "^5.0.9",
