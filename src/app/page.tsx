@@ -103,8 +103,8 @@ const Home = () => {
             <Table variant='striped'>
               <Thead>
                 <Tr fontWeight={'bold'}>
-                  <Td>Palavra-chave</Td>
                   <Td>Valor</Td>
+                  <Td>Palavra-chave</Td>
                 </Tr>
               </Thead>
               <Tbody>
