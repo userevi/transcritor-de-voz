@@ -13,5 +13,11 @@ export async function POST(
   const { youtubeUrl } = body;
 
   const data = await YoutubeTranscript.fetchTranscript(youtubeUrl);
+
+  // const text = data.map((item: any) => item?.text);
+  // save into a file
+  // const fs = require('fs');
+  // fs.writeFileSync('transcripts.txt', text.join(' '));
+
   return NextResponse.json({ data })
 }
